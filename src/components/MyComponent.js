@@ -4,7 +4,6 @@ class MyComponent extends React.Component {
         return (
             <div>
               My fist Components
-              {Math.random()}
               </div>
   
         );
