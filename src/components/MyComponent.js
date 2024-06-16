@@ -5,20 +5,20 @@ class MyComponent extends React.Component {
         address: "Ben Tre",
         age: 26
     };
-    handleClick = (event) => {
+    handleClick(event) {
         console.log("Click me button");
-        console.log(event);
-    }
-    handleOnMoveOver(event){
-        console.log(event);
+        this.setState({
+            name: "Nguyễn Huỳnh Nguyên",
+            age: Math.floor((Math.random()*100)+1)
+        })
     }
     //JSX
     render() {
         return (
             <div>
-              My name is {this.state.name} form {this.state.address}
+              My name is {this.state.name} and I'm {this.state.age}
               <br></br>
-            <button onClick={this.handleClick} on onMouseOver={this.handleOnMoveOver}>click me</button>
+            <button onClick={(event) => {this.handleClick(event)}} >click me</button>
             </div>
         );
     }
