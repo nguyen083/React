@@ -1,6 +1,5 @@
 import React from 'react';
 import './DisplayInfor.scss'
-import logo from './../logo.svg'
 class DisplayInfor extends React.Component {
     state = {
         check: true,
@@ -14,15 +13,18 @@ class DisplayInfor extends React.Component {
         const { listUders } = this.props;
         return (
             <div className='display-infor-container'>
-                <img src={logo} alt="logo" />
+                {/* <img src={logo} alt="logo" /> */}
                 <span onClick={(event) => { this.handleOnClick(event) }} style={{color: 'blue',textDecoration: 'underline'}}>{this.state.check? 'Hide': 'Show'}</span>
                 {
                     this.state.check && <>
                         {
                             listUders.map((item) => {
-                                return (<div key={item.id} className= {item.age >= 26 ? 'red': 'green'}>My name is {item.name} and {item.age} <hr /></div>)
+                                return  (<><div key={item.id} className= {item.age >= 26 ? 'red': 'green'}>My name is {item.name} and {item.age} </div> 
+                                 <button className='btnDel' onClick={() => this.props.handleDeleteUser(item.id)}>Delete</button>
+                                 <hr/></>)
                             })
                         }
+                       
                     </>
                 }
                 {/* {
