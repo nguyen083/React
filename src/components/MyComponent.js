@@ -14,11 +14,11 @@ class MyComponent extends React.Component {
     }
     handleUserInfor = (userObject) => {
         this.setState({
-            listUders: [userObject,...this.state.listUders],
+            listUders: [userObject, ...this.state.listUders],
         });
 
         // This is bad code
-        
+
         // let listUdersNew = this.state.listUders;
         // listUdersNew.unshift(userObject);
         // this.setState({
@@ -28,10 +28,15 @@ class MyComponent extends React.Component {
     //JSX
     render() {
         return (
-            <div>
-                <UserInfor handleUserInfor={this.handleUserInfor} />
-                <DisplayInfor listUders={this.state.listUders} />
-            </div>
+            <>
+                <div className="a">
+                    <UserInfor handleUserInfor={this.handleUserInfor} />
+                    <DisplayInfor listUders={this.state.listUders} />
+                </div>
+                <div className="b">
+
+                </div>
+            </>
         );
     }
 }
