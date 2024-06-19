@@ -12,11 +12,24 @@ class MyComponent extends React.Component {
             { id: 5, name: 'Phú', age: 28 },
         ],
     }
+    handleUserInfor = (userObject) => {
+        this.setState({
+            listUders: [userObject,...this.state.listUders],
+        });
+
+        // This is bad code
+        
+        // let listUdersNew = this.state.listUders;
+        // listUdersNew.unshift(userObject);
+        // this.setState({
+        //     listUders: listUdersNew,
+        // });
+    }
     //JSX
     render() {
         return (
             <div>
-                <UserInfor />
+                <UserInfor handleUserInfor={this.handleUserInfor} />
                 <DisplayInfor listUders={this.state.listUders} />
             </div>
         );
