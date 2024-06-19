@@ -17,7 +17,7 @@ class DisplayInfor extends React.Component {
                     this.state.check && <div>
                         {
                             listUders.map((item) => {
-                                return (<div key={item.id} class= {item.age >= 26 ? 'red': 'green'}>My name is {item.name} and {item.age} <hr /></div>)
+                                return (<div key={item.id} className= {item.age >= 26 ? 'red': 'green'}>My name is {item.name} and {item.age} <hr /></div>)
                             })
                         }
                     </div>
