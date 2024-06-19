@@ -1,4 +1,5 @@
 import React from 'react';
+import './DisplayInfor.scss'
 class DisplayInfor extends React.Component {
     state = {
         check: true,
@@ -11,7 +12,7 @@ class DisplayInfor extends React.Component {
     render() {
         const { listUders } = this.props;
         return (
-            <div>
+            <div className='display-infor-container'>
                 <span onClick={(event) => { this.handleOnClick(event) }} style={{color: 'blue',textDecoration: 'underline'}}>{this.state.check? 'Hide': 'Show'}</span>
                 {
                     this.state.check && <div>
