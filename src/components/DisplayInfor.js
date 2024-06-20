@@ -1,8 +1,23 @@
 import React from 'react';
 import './DisplayInfor.scss'
 class DisplayInfor extends React.Component {
-    state = {
-        check: true,
+    constructor(props) {
+        console.log('constructor: 1');
+        super(props);
+        this.state = {
+            check: true,
+        }
+    }
+
+    componentDidMount() {
+
+        console.log('componentDidMount');
+        setTimeout(() => {
+            document.title = "DisplayInfor"
+        }, 3000)
+    }
+    componentDidUpdate(prevProps, prevState, snapshot){
+        console.log('componentDidUpdate');
     }
     handleOnClick = (event) => {
         this.setState({
@@ -10,21 +25,22 @@ class DisplayInfor extends React.Component {
         });
     }
     render() {
+        console.log('render');
         const { listUders } = this.props;
         return (
             <div className='display-infor-container'>
                 {/* <img src={logo} alt="logo" /> */}
-                <span onClick={(event) => { this.handleOnClick(event) }} style={{color: 'blue',textDecoration: 'underline'}}>{this.state.check? 'Hide': 'Show'}</span>
+                <span onClick={(event) => { this.handleOnClick(event) }} style={{ color: 'blue', textDecoration: 'underline' }}>{this.state.check ? 'Hide' : 'Show'}</span>
                 {
                     this.state.check && <>
                         {
                             listUders.map((item) => {
-                                return  (<><div key={item.id} className= {item.age >= 26 ? 'red': 'green'}>My name is {item.name} and {item.age} </div> 
-                                 <button className='btnDel' onClick={() => this.props.handleDeleteUser(item.id)}>Delete</button>
-                                 <hr/></>)
+                                return (<><div key={item.id} className={item.age >= 26 ? 'red' : 'green'}>My name is {item.name} and {item.age} </div>
+                                    <button className='btnDel' onClick={() => this.props.handleDeleteUser(item.id)}>Delete</button>
+                                    <hr /></>)
                             })
                         }
-                       
+
                     </>
                 }
                 {/* {
