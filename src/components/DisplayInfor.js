@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DisplayInfor.scss'
 // class DisplayInfor extends React.Component {
 
@@ -26,8 +26,8 @@ import './DisplayInfor.scss'
 //                         //     <div key={item.id} class="red">My name is {item.name} and {item.age} <hr /></div>
 //                         // ) : (<div key={item.id} class="green">My name is {item.name} and {item.age}<hr /></div>);
 //                         return (<div key={item.id} class= {item.age >= 26 ? 'red': 'green'}>My name is {item.name} and {item.age} <hr /></div>)
-                            
-                        
+
+
 //                     })
 //                 } */}
 //             </div>
@@ -35,11 +35,17 @@ import './DisplayInfor.scss'
 //     }
 // }
 const DisplayInfor = (props) => {
-            const { listUders } = props;
-        return (
-            <div className='display-infor-container'>
-                {
-                    true && <>
+    const { listUders } = props;
+    const [isShow, setIsShow] = useState(true);
+    const handleShowHide = () => {
+        setIsShow(!isShow);
+    }
+    return (
+        <div className='display-infor-container'>
+            {
+                <div>
+                    <button style={{color: 'blue'}} onClick={() => handleShowHide()}>{isShow ===true ? 'Hide' : 'Show'}</button>
+                    {isShow && <>
                         {
                             listUders.map((item) => {
                                 return (<><div key={item.id} className={item.age >= 26 ? 'red' : 'green'}>My name is {item.name} and {item.age} </div>
@@ -48,8 +54,9 @@ const DisplayInfor = (props) => {
                             })
                         }
                     </>
-                }
-            </div>
-        );
+                    }</div>
+            }
+        </div>
+    );
 }
 export default DisplayInfor;
