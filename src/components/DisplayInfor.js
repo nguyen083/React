@@ -5,13 +5,13 @@ import './DisplayInfor.scss'
 
 //     render() {
 //         console.log('render');
-//         const { listUders } = this.props;
+//         const { listUsers } = this.props;
 //         return (
 //             <div className='display-infor-container'>
 //                 {
 //                     true && <>
 //                         {
-//                             listUders.map((item) => {
+//                             listUsers.map((item) => {
 //                                 return (<><div key={item.id} className={item.age >= 26 ? 'red' : 'green'}>My name is {item.name} and {item.age} </div>
 //                                     <button className='btnDel' onClick={() => this.props.handleDeleteUser(item.id)}>Delete</button>
 //                                     <hr /></>)
@@ -21,7 +21,7 @@ import './DisplayInfor.scss'
 //                     </>
 //                 }
 //                 {/* {
-//                     listUders.map((item) => {
+//                     listUsers.map((item) => {
 //                         // return item.age >= 26 ? (
 //                         //     <div key={item.id} class="red">My name is {item.name} and {item.age} <hr /></div>
 //                         // ) : (<div key={item.id} class="green">My name is {item.name} and {item.age}<hr /></div>);
@@ -35,7 +35,7 @@ import './DisplayInfor.scss'
 //     }
 // }
 const DisplayInfor = (props) => {
-    const { listUders } = props;
+    const { listUsers } = props;
     const [isShow, setIsShow] = useState(true);
     const handleShowHide = () => {
         setIsShow(!isShow);
@@ -47,7 +47,7 @@ const DisplayInfor = (props) => {
                     <button style={{color: 'blue'}} onClick={() => handleShowHide()}>{isShow ===true ? 'Hide' : 'Show'}</button>
                     {isShow && <>
                         {
-                            listUders.map((item) => {
+                            listUsers.map((item) => {
                                 return (<><div key={item.id} className={item.age >= 26 ? 'red' : 'green'}>My name is {item.name} and {item.age} </div>
                                     <button className='btnDel' onClick={() => props.handleDeleteUser(item.id)}>Delete</button>
                                     <hr /></>)
