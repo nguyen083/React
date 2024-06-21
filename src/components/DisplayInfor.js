@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './DisplayInfor.scss'
 // class DisplayInfor extends React.Component {
 
@@ -40,6 +40,15 @@ const DisplayInfor = (props) => {
     const handleShowHide = () => {
         setIsShow(!isShow);
     }
+    useEffect(() =>{
+        console.log('call useEffect');
+        if(listUsers.length===0)
+            {
+                alert('listUsers empty');
+            }
+    },[listUsers]);
+
+    console.log('render');
     return (
         <div className='display-infor-container'>
             {
